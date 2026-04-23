@@ -240,7 +240,11 @@ ai-os/
 
 ## 重要规则
 
-1. **先读后答**: 每次回答前，先检查 \`01-identity/memory/\` 下的相关文件
+1. **按需读取 memory**：
+   - 写作任务 → 先读 \`memory/writing_style.md\`（风格标本、标题公式、禁忌）
+   - 需要了解我的背景/身份 → 读 \`memory/user_profile.md\`
+   - 需要了解我当前在做什么 → 读 \`memory/current_projects.md\`
+   - 避免重复犯错 → 读 \`memory/ai_preferences.md\`（踩坑记录）
 2. **调用知识**: 需要背景信息时，去 \`02-knowledge/\` 查找
 3. **使用工具**: 有现成 Skill 时优先使用，不要重复造轮子
 4. **保持风格**: 所有输出都要符合上面定义的风格偏好
