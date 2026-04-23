@@ -1,7 +1,7 @@
 # 个人 AI 操作系统 (AI-OS)
 
 [![License](https://img.shields.io/badge/License-Non--Commercial-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)]()
+[![Version](https://img.shields.io/badge/Version-1.0.1-green.svg)]()
 
 > 一套由 Markdown 文档组成的个人 AI 协作框架，让 AI 真正认识你、替你干活。
 
@@ -20,7 +20,7 @@
 | **初始化脚本** | 交互式一键初始化，自动生成个性化配置 |
 | **身份层** | CLAUDE.md + 4 个 memory 文件（画像、风格、偏好、项目） |
 | **知识层** | 内容定位、读者画像、素材库、内容归档模板 |
-| **工具层** | 5 个预置 Skills（去AI腔、标题生成、小红书写作、公众号写作、多平台改编） |
+| **工具层** | 6 个预置 Skills（去AI腔、标题生成、小红书写作、公众号写作、多平台改编、短视频文案） |
 | **协作层** | 3 条预置工作流（想法→发布、一鱼多吃、内容复盘） |
 | **场景层** | 2 个预置场景（内容生产、持续学习） |
 
@@ -149,6 +149,7 @@ AI：
 | `repurpose-content` | 一篇内容改编为多平台版本 | `03-tools/skills/global/` |
 | `write-xhs-post` | 按风格写小红书文案 | `03-tools/skills/xiaohongshu/` |
 | `write-wechat-article` | 按风格写公众号长文 | `03-tools/skills/wechat/` |
+| `write-video-script` | 短视频文案生成（文案/分镜/封面/BGM） | `03-tools/skills/video/` |
 
 ## 📅 维护建议
 
