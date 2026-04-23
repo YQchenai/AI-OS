@@ -28,7 +28,7 @@ Step 1: 选题验证 ─────────── 🤖 AI + 👤 人
   │  人: 确认选题角度
   ↓
 Step 2: 素材收集 ─────────── 🤖 AI
-  │  调用: research-topic Skill
+  │  调用: 搜索相关话题热度和素材
   │  从 knowledge/materials/ 提取相关素材
   ↓
 Step 3: 写文案 ───────────── 🤖 AI

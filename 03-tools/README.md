@@ -19,10 +19,9 @@
 ```
 03-tools/skills/
 ├── global/              ← 全局通用 Skills（任何场景都能用）
-├── content-writing/     ← 内容写作 Skills（公众号/通用写作）
 ├── xiaohongshu/         ← 小红书垂直 Skills
 ├── wechat/              ← 微信公众号垂直 Skills
-└── utilities/           ← 辅助工具 Skills（搜索、整理、分析）
+└── video/               ← 短视频 Skills
 ```
 
 ---

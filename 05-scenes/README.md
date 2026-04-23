@@ -18,7 +18,6 @@
 ```
 05-scenes/
 ├── content-production/   ← 内容生产（博主核心场景）
-├── product-design/       ← 产品设计（如果有产品的话）
 └── learning/             ← 持续学习（输入→输出的闭环）
 ```
 

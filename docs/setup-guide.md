@@ -1,6 +1,6 @@
 # 个人 AI 操作系统 — 搭建指导手册
 
-> **版本**: v1.0
+> **版本**: v1.0.1
 > **适用对象**: AI/科技领域知识分享博主
 > **主力工具**: SOLO
 > **目标平台**: 小红书 + 微信公众号
@@ -49,7 +49,7 @@ ai-os/
 │       ├── global/       ← 通用 Skills
 │       ├── xiaohongshu/  ← 小红书 Skills
 │       ├── wechat/       ← 公众号 Skills
-│       └── utilities/    ← 辅助 Skills
+│       └── video/        ← 短视频 Skills
 │
 ├── 04-workflows/         ← 第4层：协作层
 │   ├── idea-to-xiaohongshu.md
@@ -59,7 +59,6 @@ ai-os/
 │
 └── 05-scenes/            ← 第5层：场景层
     ├── content-production/
-    ├── product-design/
     └── learning/
 ```
 
@@ -143,6 +142,7 @@ ai-os/
 - `global/repurpose-content.md` — 多平台改编
 - `xiaohongshu/write-xhs-post.md` — 小红书写作
 - `wechat/write-wechat-article.md` — 公众号写作
+- `video/write-video-script.md` — 短视频文案
 
 #### Step 3.2：试用并优化
 

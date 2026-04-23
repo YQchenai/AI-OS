@@ -16,7 +16,7 @@
 |------|-----------|
 | 身份层 | current_projects.md（了解当前学习方向） |
 | 知识层 | decisions/（学习笔记和决策记录）、materials/（收集的素材） |
-| 工具层 | research-topic Skill |
+| 工具层 | 搜索整理信息 |
 | 协作层 | 自定义学习工作流 |
 
 ## 学习闭环
@@ -24,7 +24,7 @@
 ```
 [发现新主题]
     ↓
-AI 搜索 + 整理信息 → research-topic Skill
+AI 搜索 + 整理信息
     ↓
 阅读/体验 + 做笔记 → 沉淀到 decisions/
     ↓

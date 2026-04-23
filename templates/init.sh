@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 #  AI-OS 个人 AI 操作系统 — 一键初始化脚本
-#  版本: v1.0.0
+#  版本: v1.0.1
 #  适用: SOLO / Claude Code / 任何支持 Bash 的 AI 工具
 # ============================================================
 
@@ -24,7 +24,7 @@ print_banner() {
     echo -e "${CYAN}║        ${BOLD}AI-OS 个人 AI 操作系统${NC}                    ${CYAN}║${NC}"
     echo -e "${CYAN}║        ${BOLD}一键初始化向导${NC}                            ${CYAN}║${NC}"
     echo -e "${CYAN}║                                                  ║${NC}"
-    echo -e "${CYAN}║        版本 v1.0.0                                ${CYAN}║${NC}"
+    echo -e "${CYAN}║        版本 v1.0.1                                ${CYAN}║${NC}"
     echo -e "${CYAN}║                                                  ║${NC}"
     echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
     echo ""
@@ -169,13 +169,12 @@ main() {
     mkdir -p "${FULL_PATH}/02-knowledge/materials"
     mkdir -p "${FULL_PATH}/02-knowledge/decisions"
     mkdir -p "${FULL_PATH}/03-tools/skills/global"
-    mkdir -p "${FULL_PATH}/03-tools/skills/content-writing"
     mkdir -p "${FULL_PATH}/03-tools/skills/xiaohongshu"
     mkdir -p "${FULL_PATH}/03-tools/skills/wechat"
     mkdir -p "${FULL_PATH}/03-tools/skills/utilities"
+    mkdir -p "${FULL_PATH}/03-tools/skills/video"
     mkdir -p "${FULL_PATH}/04-workflows"
     mkdir -p "${FULL_PATH}/05-scenes/content-production"
-    mkdir -p "${FULL_PATH}/05-scenes/product-design"
     mkdir -p "${FULL_PATH}/05-scenes/learning"
     mkdir -p "${FULL_PATH}/docs"
 
@@ -188,7 +187,7 @@ main() {
     cat > "${FULL_PATH}/01-identity/CLAUDE.md" << CLAUDE_EOF
 # AI-OS — 个人 AI 操作系统配置
 
-> **版本**: v1.0.0
+> **版本**: v1.0.1
 > **初始化日期**: $(date +%Y-%m-%d)
 > **适用工具**: SOLO / Claude Code / ChatGPT / 任何支持 Markdown 上下文的 AI 工具
 
@@ -603,9 +602,9 @@ KREADME_EOF
 \`\`\`
 03-tools/skills/
 ├── global/              ← 全局通用 Skills
-├── content-writing/     ← 内容写作 Skills
 ├── xiaohongshu/         ← 小红书垂直 Skills
 ├── wechat/              ← 微信公众号垂直 Skills
+├── video/               ← 短视频 Skills
 └── utilities/           ← 辅助工具 Skills
 \`\`\`
 
@@ -874,6 +873,128 @@ XHS_EOF
 WX_EOF
     print_success "✅ 03-tools/skills/wechat/write-wechat-article.md"
 
+    # --- 6.7 write-video-script.md ---
+    cat > "${FULL_PATH}/03-tools/skills/video/write-video-script.md" << VIDEO_EOF
+# 短视频文案生成
+
+> 版本：v1.1 | 更新：$(date +%Y-%m-%d)
+
+## 触发条件
+需要制作短视频（抖音、B站、视频号、小红书视频等）时使用。
+
+## 输入
+- 选题/主题（一句话描述）
+- 视频类型：口播讲解 / 知识科普 / 工具测评 / 观点分享 / 故事叙述
+- 目标时长：15秒 / 30秒 / 60秒 / 3分钟
+- 目标平台：抖音 / B站 / 视频号 / 小红书（可选，默认通用）
+- 输出模式：
+  - \`文案\` — 仅口播文案（默认）
+  - \`完整\` — 文案 + 分镜脚本 + 爆款开头 + 封面标题 + 发布文案 + BGM建议
+
+## 输出
+
+### 模式一：仅文案（默认）
+
+\`\`\`
+【标题方案】
+1. [标题1]
+2. [标题2]
+3. [标题3]
+
+【口播文案】（约 XX 秒）
+
+[钩子/开头]（前3秒）
+> [第一句话，必须抓住注意力]
+
+[正文]
+> [核心内容，逐句排列]
+> [每句标注预计时长]
+
+[结尾/行动号召]
+> [引导点赞/关注/评论的话]
+\`\`\`
+
+### 模式二：完整制作方案
+
+在文案基础上，额外输出：
+
+\`\`\`
+【分镜脚本】
+
+| 镜号 | 时长 | 画面描述 | 口播文案 | 备注 |
+|------|------|----------|----------|------|
+| 1 | 0-3s | [画面描述] | [钩子文案] | [拍摄/剪辑提示] |
+| 2 | 3-8s | [画面描述] | [正文第1句] | [提示] |
+| 3 | 8-15s | [画面描述] | [正文第2句] | [提示] |
+| ... | ... | ... | ... | ... |
+
+【封面方案】
+- 方案A：大字「[封面文字]」+ 背景[描述]
+- 方案B：大字「[封面文字]」+ 背景[描述]
+
+【发布文案】
+[适配目标平台的发布描述，含标签]
+
+【BGM建议】
+- 风格：[如：轻快节奏/悬疑感/温暖治愈]
+- 节奏：[如：前3秒快节奏吸引注意，中段平稳，结尾上扬]
+- 参考：[如：类似XX风格的音乐]
+\`\`\`
+
+## 执行步骤
+
+### Step 1: 读取上下文
+- 读取 \`01-identity/memory/writing_style.md\` 获取风格指南
+- 读取 \`02-knowledge/audience/audience_persona.md\` 获取读者画像
+- 读取 \`02-knowledge/materials/golden_quotes.md\` 获取可用金句
+
+### Step 2: 设计爆款开头（最关键）
+前 3 秒决定完播率，按以下策略各生成 1 个：
+1. **痛点型**：直接戳中目标用户的痛点
+2. **反常识型**：说一个违反直觉的观点
+3. **数字型**：用具体数字制造信息差
+4. **提问型**：问一个用户想知道答案的问题
+
+### Step 3: 写口播文案
+根据目标时长控制字数：
+- 15秒：约 50-60 字
+- 30秒：约 100-120 字
+- 60秒：约 200-240 字
+- 3分钟：约 600-720 字
+
+文案结构：
+1. **钩子**（前3秒）：用 Step 2 选出的开头
+2. **核心内容**（中间）：分 2-5 个要点，每点一句话
+3. **行动号召**（结尾）：引导互动
+
+### Step 4: 优化文案
+- 检查是否符合风格指南
+- 检查口语化程度（短视频必须是"说"的语言，不是"写"的语言）
+- 去 AI 腔处理
+- 标注停顿（...）和重音（**加粗**）
+
+### Step 5: 生成标题和封面
+- 生成 3 个标题方案
+- 生成 2 个封面文案方案
+
+### Step 6: 完整模式额外输出（如果选择了"完整"模式）
+- 生成分镜脚本
+- 生成发布文案（含标签）
+- 生成 BGM 建议
+
+## 注意事项
+- 短视频文案必须是**口语**，不是书面语。写完后要读一遍，不顺口的改掉
+- 前 3 秒是生死线，开头不好后面再好也没用
+- 每句话控制在 15 字以内，方便观众消化
+- 结尾必须有明确的行动号召（点赞/关注/评论/收藏）
+- 短视频的"干货密度"要比图文更高，每句话都要有价值
+- 标题和封面文案要分开设计，封面是给"刷到"的人看的，标题是给"搜索"的人看的
+
+## 变更记录
+- v1.1 ($(date +%Y-%m-%d)): 初始版本，支持文案模式和完整制作模式
+VIDEO_EOF
+    print_success "✅ 03-tools/skills/video/write-video-script.md"
+
     # ===== Step 7: 生成协作层文件 =====
     print_step "Step 7: 生成协作层工作流"
 
@@ -889,32 +1010,33 @@ WX_EOF
 3. **明确人机分工**: 每一步标注是 AI 做、人做、还是人机协作
 
 ## 推荐优先创建的工作流
-1. **从想法到发布** — 最核心的内容生产流程
-2. **一鱼多吃** — 一篇内容改编为多平台版本
-3. **内容复盘** — 发布后的数据分析与知识沉淀
+1. **从想法到小红书发布** — 小红书内容生产流程
+2. **从想法到公众号发布** — 公众号深度文章生产流程
+3. **一鱼多吃** — 一篇内容改编为多平台版本
+4. **内容复盘** — 发布后的数据分析与知识沉淀
 WREADME_EOF
     print_success "✅ 04-workflows/README.md"
 
-    # --- 7.2 idea-to-publish.md ---
-    cat > "${FULL_PATH}/04-workflows/idea-to-publish.md" << PUB_EOF
-# 工作流：从想法到发布
+    # --- 7.2 idea-to-xiaohongshu.md ---
+    cat > "${FULL_PATH}/04-workflows/idea-to-xiaohongshu.md" << XHSWF_EOF
+# 工作流：从想法到小红书发布
 
 > 版本：v1.0 | 更新：$(date +%Y-%m-%d)
 
 ## 概述
-将一个内容想法转化为可发布的内容。
+将一个内容想法转化为小红书图文/视频文案并准备发布。
 
 ## 触发条件
 有一个想分享的主题、工具、或观点。
 
 ## 输入
 - 内容想法（一句话描述即可）
-- 目标平台
 
 ## 输出
-- 可直接发布的内容文案
+- 可直接发布的小红书文案
 - 标题选项
-- 标签/摘要
+- 标签
+- 封面文案建议
 - 配图建议
 
 ## 步骤链
@@ -923,15 +1045,16 @@ WREADME_EOF
 [想法]
   ↓
 Step 1: 选题验证 ─────────── 🤖 AI + 👤 人
-  │  AI: 搜索相关话题热度
+  │  AI: 搜索相关话题热度、竞品内容
   │  人: 确认选题角度
   ↓
 Step 2: 素材收集 ─────────── 🤖 AI
+  │  调用: 搜索相关话题热度和素材
   │  从 knowledge/materials/ 提取相关素材
   ↓
 Step 3: 写文案 ───────────── 🤖 AI
-  │  小红书: 调用 write-xhs-post Skill
-  │  公众号: 调用 write-wechat-article Skill
+  │  调用: write-xhs-post Skill
+  │  读取 writing_style.md 风格指南
   ↓
 Step 4: 去 AI 腔 ─────────── 🤖 AI
   │  调用: de-ai-tone Skill
@@ -940,22 +1063,97 @@ Step 5: 生成标题 ─────────── 🤖 AI
   │  调用: generate-title Skill
   ↓
 Step 6: 人工审核 ─────────── 👤 人
-  │  审核: 内容准确性、个人观点
+  │  审核: 内容准确性、个人观点、敏感内容
   │  微调: 修改不满意的表述
+  ↓
+Step 7: 制作配图 ─────────── 🤖 AI + 👤 人
+  │  AI: 生成封面文案、配图建议
+  │  人: 制作/选择图片
   ↓
 [发布就绪]
 \`\`\`
 
 ## 预计耗时
-- **优化前**（手动）：60-180 分钟
-- **优化后**（AI辅助）：15-60 分钟
+- **优化前**（手动）：60-90 分钟
+- **优化后**（AI辅助）：15-25 分钟
+- **效率提升**：约 3-4 倍
 
 ## 优化记录
-- v1.0 ($(date +%Y-%m-%d)): 初始版本
-PUB_EOF
-    print_success "✅ 04-workflows/idea-to-publish.md"
+- v1.0 ($(date +%Y-%m-%d)): 初始版本，待实际使用后优化
+XHSWF_EOF
+    print_success "✅ 04-workflows/idea-to-xiaohongshu.md"
 
-    # --- 7.3 repurpose-multi-platform.md ---
+    # --- 7.3 idea-to-wechat.md ---
+    cat > "${FULL_PATH}/04-workflows/idea-to-wechat.md" << WXWF_EOF
+# 工作流：从想法到公众号发布
+
+> 版本：v1.0 | 更新：$(date +%Y-%m-%d)
+
+## 概述
+将一个内容想法转化为公众号深度文章。
+
+## 触发条件
+有一个值得深度展开的主题。
+
+## 输入
+- 内容想法（可以是关键词、大纲、或一段语音/笔记）
+
+## 输出
+- 可直接发布的公众号文章
+- 标题选项
+- 摘要
+- 配图建议
+
+## 步骤链
+
+\`\`\`
+[想法]
+  ↓
+Step 1: 选题深化 ─────────── 🤖 AI + 👤 人
+  │  AI: 围绕选题生成多个角度和论点
+  │  人: 选择最有价值的切入角度
+  ↓
+Step 2: 大纲生成 ─────────── 🤖 AI + 👤 人
+  │  AI: 生成文章大纲（核心观点 + 章节结构）
+  │  人: 调整大纲，确认逻辑线
+  ↓
+Step 3: 素材收集 ─────────── 🤖 AI
+  │  调用: 搜索相关话题热度和素材
+  │  从 knowledge/ 提取相关素材和案例
+  ↓
+Step 4: 写正文 ───────────── 🤖 AI
+  │  调用: write-wechat-article Skill
+  │  按大纲逐章节展开
+  ↓
+Step 5: 去 AI 腔 ─────────── 🤖 AI
+  │  调用: de-ai-tone Skill
+  ↓
+Step 6: 生成标题 ─────────── 🤖 AI
+  │  调用: generate-title Skill
+  ↓
+Step 7: 人工审核 ─────────── 👤 人
+  │  审核: 内容准确性、深度、个人观点
+  │  补充: 添加个人经历和独到见解
+  │  微调: 修改不满意的表述
+  ↓
+Step 8: 排版配图 ─────────── 👤 人
+  │  参考 AI 给出的配图建议
+  │  在公众号编辑器中排版
+  ↓
+[发布就绪]
+\`\`\`
+
+## 预计耗时
+- **优化前**（手动）：3-5 小时
+- **优化后**（AI辅助）：1-2 小时
+- **效率提升**：约 2-3 倍
+
+## 优化记录
+- v1.0 ($(date +%Y-%m-%d)): 初始版本，待实际使用后优化
+WXWF_EOF
+    print_success "✅ 04-workflows/idea-to-wechat.md"
+
+    # --- 7.4 repurpose-multi-platform.md ---
     cat > "${FULL_PATH}/04-workflows/repurpose-multi-platform.md" << MULTI_EOF
 # 工作流：一鱼多吃 — 多平台分发
 
@@ -989,7 +1187,7 @@ Step 4: 人工审核 ─────────── 👤 人
 MULTI_EOF
     print_success "✅ 04-workflows/repurpose-multi-platform.md"
 
-    # --- 7.4 content-review.md ---
+    # --- 7.5 content-review.md ---
     cat > "${FULL_PATH}/04-workflows/content-review.md" << REVIEW_EOF
 # 工作流：内容复盘与知识沉淀
 
@@ -1069,7 +1267,7 @@ SREADME_EOF
 | 身份层 | CLAUDE.md、writing_style.md |
 | 知识层 | positioning.md、audience_persona.md、content归档、materials |
 | 工具层 | write-xhs-post、write-wechat-article、de-ai-tone、generate-title |
-| 协作层 | idea-to-publish、repurpose-multi-platform、content-review |
+| 协作层 | idea-to-xiaohongshu、idea-to-wechat、repurpose-multi-platform、content-review |
 
 ## 内容生产完整管线
 
@@ -1077,7 +1275,7 @@ SREADME_EOF
 选题 → 创作 → 发布 → 复盘 → 选题（循环）
 \`\`\`
 
-详细流程参考 \`04-workflows/idea-to-publish.md\`
+详细流程参考 \`04-workflows/idea-to-xiaohongshu.md\` 或 \`04-workflows/idea-to-wechat.md\`
 
 ## 度量指标
 | 指标 | 目标 |
@@ -1117,7 +1315,7 @@ LEARN_EOF
     cat > "${FULL_PATH}/docs/setup-guide.md" << GUIDE_EOF
 # AI-OS 使用指南
 
-> **版本**: v1.0.0 | **初始化日期**: $(date +%Y-%m-%d)
+> **版本**: v1.0.1 | **初始化日期**: $(date +%Y-%m-%d)
 
 ---
 
@@ -1135,8 +1333,8 @@ ${INSTALL_DIR}/
 │       ├── ai_preferences.md
 │       └── current_projects.md
 ├── 02-knowledge/         ← 知识层（模板已就绪，待填充）
-├── 03-tools/             ← 工具层（5个预置 Skills ✅）
-├── 04-workflows/         ← 协作层（3条预置工作流 ✅）
+├── 03-tools/             ← 工具层（6个预置 Skills ✅）
+├── 04-workflows/         ← 协作层（4条预置工作流 ✅）
 └── 05-scenes/            ← 场景层（2个预置场景 ✅）
 \`\`\`
 
@@ -1168,7 +1366,7 @@ ${INSTALL_DIR}/
 
 ### 第四步：跑通工作流（持续）
 
-1. 按 \`04-workflows/idea-to-publish.md\` 的步骤执行一次完整的内容生产
+1. 按 \`04-workflows/idea-to-xiaohongshu.md\` 或 \`04-workflows/idea-to-wechat.md\` 的步骤执行一次完整的内容生产
 2. 记录每步的实际耗时
 3. 根据体验优化工作流
 
@@ -1233,7 +1431,7 @@ GUIDE_EOF
     cat > "${FULL_PATH}/README.md" << MAINREADME_EOF
 # AI-OS 个人 AI 操作系统
 
-> **版本**: v1.0.0 | **初始化日期**: $(date +%Y-%m-%d)
+> **版本**: v1.0.1 | **初始化日期**: $(date +%Y-%m-%d)
 > **所有者**: ${NICKNAME} | **身份**: ${ROLE} | **领域**: ${FIELD}
 
 ## 这是什么？
@@ -1279,8 +1477,8 @@ MAINREADME_EOF
     echo -e "${GREEN}║     已生成文件:                                   ${GREEN}║${NC}"
     echo -e "${GREEN}║     • 身份层: 5 个文件（已个性化配置）            ${GREEN}║${NC}"
     echo -e "${GREEN}║     • 知识层: 5 个模板文件                       ${GREEN}║${NC}"
-    echo -e "${GREEN}║     • 工具层: 5 个预置 Skills                    ${GREEN}║${NC}"
-    echo -e "${GREEN}║     • 协作层: 3 条预置工作流                     ${GREEN}║${NC}"
+    echo -e "${GREEN}║     • 工具层: 6 个预置 Skills                    ${GREEN}║${NC}"
+    echo -e "${GREEN}║     • 协作层: 4 条预置工作流                     ${GREEN}║${NC}"
     echo -e "${GREEN}║     • 场景层: 2 个预置场景                       ${GREEN}║${NC}"
     echo -e "${GREEN}║     • 文档: 使用指南 + README                    ${GREEN}║${NC}"
     echo -e "${GREEN}║                                                  ║${NC}"
