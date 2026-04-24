@@ -61,23 +61,21 @@
 
 ---
 
-## 推荐优先创建的 Skills
+## 已创建的 Skills
 
-### 第一批（最高频）
-1. `write-xhs-post.md` — 按风格写小红书文案
-2. `write-wechat-article.md` — 按风格写公众号长文
-3. `generate-title.md` — 生成多个标题选项
-4. `de-ai-tone.md` — 去 AI 腔调，让文字更像人写的
+### 全局通用（`global/`）
+1. `de-ai-tone.md` — 去 AI 腔调，让文字更像人写的
+2. `generate-title.md` — 生成多个标题选项
+3. `repurpose-content.md` — 一篇内容改编为多平台版本
 
-### 第二批（提升效率）
-5. `analyze-content-data.md` — 分析内容数据表现
-6. `repurpose-content.md` — 一篇内容改编为多平台版本
-7. `research-topic.md` — 围绕一个选题做信息搜集
-8. `extract-insights.md` — 从评论/反馈中提取洞察
+### 小红书（`xiaohongshu/`）
+4. `write-xhs-post.md` — 按风格写小红书文案
 
-### 第三批（进阶）
-9. `create-content-calendar.md` — 生成内容排期表
-10. `competitor-monitor.md` — 同行内容监控与分析
+### 微信公众号（`wechat/`）
+5. `write-wechat-article.md` — 按风格写公众号长文
+
+### 短视频（`video/`）
+6. `write-video-script.md` — 生成短视频口播文案和完整制作方案
 
 ---
 

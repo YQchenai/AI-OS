@@ -32,19 +32,16 @@
 ## 各文件夹说明
 
 ### `identity/` — 身份与定位
-存放你的品牌定位文档、人设说明、竞品分析等。
+存放你的品牌定位文档、人设说明等。
 - `positioning.md` — 你的内容定位（写给谁、解决什么问题、差异化在哪）
-- `brand_voice.md` — 品牌语调指南
-- `competitor_analysis.md` — 同领域博主分析
 
 ### `audience/` — 受众洞察
-存放粉丝画像、评论分析、用户需求洞察。
+存放粉丝画像、用户需求洞察。
 - `audience_persona.md` — 目标读者画像
-- `comment_insights.md` — 高赞评论、常见问题、用户痛点
-- `feedback_summary.md` — 定期汇总的用户反馈
 
 ### `content/` — 内容归档
 按平台存放已发布的内容，方便 AI 学习你的风格和复用素材。
+- `_content_template.md` — 内容归档模板
 - 每篇内容一个 `.md` 文件
 - 文件名格式：`YYYY-MM-DD_标题关键词.md`
 - 文件头部包含元数据（平台、数据表现、标签）
@@ -52,9 +49,6 @@
 ### `materials/` — 素材库
 存放可复用的素材碎片。
 - `golden_quotes.md` — 金句库
-- `case_studies.md` — 案例库
-- `data_points.md` — 数据、统计、研究报告
-- `templates.md` — 内容模板
 
 ### `decisions/` — 决策记录
 存放重要的讨论和决策，AI 每次回答都能带着这些上下文。

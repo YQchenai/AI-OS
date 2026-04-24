@@ -1,6 +1,6 @@
 # 个人 AI 操作系统 — 搭建指导手册
 
-> **版本**: v1.0.2
+> **版本**: v1.1.0
 > **适用对象**: AI/科技领域知识分享博主
 > **主力工具**: SOLO
 > **目标平台**: 小红书 + 微信公众号
@@ -28,7 +28,7 @@
 ## 五层架构总览
 
 ```
-ai-os/
+AI-OS/
 ├── 01-identity/          ← 第1层：身份层
 │   ├── CLAUDE.md         ← AI 的"入口"，每次都读
 │   └── memory/           ← 记忆文件
@@ -38,29 +38,70 @@ ai-os/
 │       └── current_projects.md
 │
 ├── 02-knowledge/         ← 第2层：知识层
-│   ├── identity/         ← 定位、风格、品牌
-│   ├── audience/         ← 读者画像、反馈洞察
-│   ├── content/          ← 内容归档
+│   ├── README.md
+│   ├── identity/         ← 定位
+│   │   └── positioning.md
+│   ├── audience/         ← 读者画像
+│   │   └── audience_persona.md
+│   ├── content/          ← 内容归档模板
+│   │   └── _content_template.md
 │   ├── materials/        ← 素材库
+│   │   └── golden_quotes.md
 │   └── decisions/        ← 决策记录
 │
 ├── 03-tools/             ← 第3层：工具层
+│   ├── README.md
 │   └── skills/
 │       ├── global/       ← 通用 Skills
+│       │   ├── de-ai-tone.md
+│       │   ├── generate-title.md
+│       │   └── repurpose-content.md
 │       ├── xiaohongshu/  ← 小红书 Skills
+│       │   └── write-xhs-post.md
 │       ├── wechat/       ← 公众号 Skills
+│       │   └── write-wechat-article.md
 │       └── video/        ← 短视频 Skills
+│           └── write-video-script.md
 │
 ├── 04-workflows/         ← 第4层：协作层
+│   ├── README.md
 │   ├── idea-to-xiaohongshu.md
 │   ├── idea-to-wechat.md
 │   ├── repurpose-multi-platform.md
 │   └── content-review.md
 │
-└── 05-scenes/            ← 第5层：场景层
-    ├── content-production/
-    └── learning/
+├── 05-scenes/            ← 第5层：场景层
+│   ├── README.md
+│   ├── content-production/
+│   │   └── scene-content-production.md
+│   └── learning/
+│       └── scene-learning.md
+│
+├── docs/
+│   └── setup-guide.md    ← 你正在看的这份指南
+├── LICENSE
+└── .gitignore
 ```
+
+---
+
+## 快速开始
+
+### 1. 复制文件夹
+
+将整个 `AI-OS/` 文件夹复制到你的 AI 工具工作目录：
+
+```bash
+cp -r AI-OS/ /你的工作目录/
+```
+
+### 2. 填写身份层
+
+打开 `01-identity/CLAUDE.md`，将 `[占位符]` 替换为你的真实信息。
+
+### 3. 开始使用
+
+告诉 AI 你的需求，它会自动读取配置并按你的风格工作。
 
 ---
 
@@ -270,7 +311,7 @@ ai-os/
 
 ### Q: 换了 AI 工具怎么办？
 **A**: 这套系统是纯 Markdown，任何支持读取文件的 AI 工具都能用。迁移时只需要：
-1. 把整个 `ai-os/` 文件夹复制到新工具的工作目录
+1. 把整个 `AI-OS/` 文件夹复制到新工具的工作目录
 2. 调整身份层配置文件格式（如果新工具用不同的配置文件名）
 3. 其他层基本不需要改动
 
