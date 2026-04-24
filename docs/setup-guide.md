@@ -9,13 +9,12 @@
 
 ## 这是什么？
 
-这是一套由 Markdown 文档组成的个人 AI 操作系统。它不是某个具体的软件或 App，而是一堆按照五层结构组织的文档，让 AI 工具能够：
+这是一套由 Markdown 文档组成的个人 AI 操作系统。它不是某个具体的软件或 App，而是一堆按照四层结构组织的文档，让 AI 工具能够：
 
 - **认识你**（身份层）——知道你是谁、你的风格、你的偏好
-- **理解你**（知识层）——调用你的历史内容、素材、决策记录
+- **理解你**（知识层）——调用你的历史内容、素材、学习笔记
 - **替你干活**（工具层）——使用预定义的 Skills 执行具体任务
 - **串联流程**（协作层）——按工作流自动完成多步骤任务
-- **服务场景**（场景层）——针对特定场景组合所有能力
 
 **核心优势**：
 - ✅ 纯 Markdown，任何 AI 工具都能用
@@ -25,7 +24,7 @@
 
 ---
 
-## 五层架构总览
+## 四层架构总览
 
 ```
 AI-OS/
@@ -47,7 +46,7 @@ AI-OS/
 │   │   └── _content_template.md
 │   ├── materials/        ← 素材库
 │   │   └── golden_quotes.md
-│   └── decisions/        ← 决策记录
+│   └── notes/            ← 学习笔记
 │
 ├── 03-tools/             ← 第3层：工具层
 │   ├── README.md
@@ -69,13 +68,6 @@ AI-OS/
 │   ├── idea-to-wechat.md
 │   ├── repurpose-multi-platform.md
 │   └── content-review.md
-│
-├── 05-scenes/            ← 第5层：场景层
-│   ├── README.md
-│   ├── content-production/
-│   │   └── scene-content-production.md
-│   └── learning/
-│       └── scene-learning.md
 │
 ├── docs/
 │   └── setup-guide.md    ← 你正在看的这份指南
@@ -230,16 +222,9 @@ cp -r AI-OS/ /你的工作目录/
 
 ---
 
-### Phase 5：场景（持续优化）
+### Phase 5：持续优化
 
-#### Step 5.1：激活内容生产场景
-
-打开 `05-scenes/content-production/scene-content-production.md`：
-1. 填写你的目标指标
-2. 理解完整管线
-3. 开始按管线运转
-
-#### Step 5.2：建立复盘习惯
+#### Step 5.1：建立复盘习惯
 
 每周花 30 分钟执行 `04-workflows/content-review.md`：
 1. 看数据
@@ -247,11 +232,10 @@ cp -r AI-OS/ /你的工作目录/
 3. 提取洞察
 4. 更新知识库
 
-#### Step 5.3：持续迭代
+#### Step 5.2：持续迭代
 
 - 发现新需求 → 创建新 Skill
 - 发现可自动化的环节 → 更新工作流
-- 发现新的高频场景 → 创建新场景
 - 知识库积累多了 → 优化目录结构
 
 ---
@@ -297,7 +281,6 @@ cp -r AI-OS/ /你的工作目录/
 - [ ] 更新内容定位
 - [ ] 更新风格指南
 - [ ] 审视整体架构，优化目录结构
-- [ ] 评估是否需要新增场景
 
 ---
 
@@ -341,7 +324,6 @@ cp -r AI-OS/ /你的工作目录/
 | `04-workflows/idea-to-xiaohongshu.md` | 小红书工作流 | 写小红书时 |
 | `04-workflows/idea-to-wechat.md` | 公众号工作流 | 写公众号时 |
 | `04-workflows/content-review.md` | 内容复盘 | 发布后 |
-| `05-scenes/content-production/` | 内容生产场景 | 日常运营 |
 
 ---
 
