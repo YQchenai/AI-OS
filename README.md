@@ -78,7 +78,8 @@ AI-OS/
 │       ├── global/           # 通用 Skills
 │       │   ├── de-ai-tone.md
 │       │   ├── generate-title.md
-│       │   └── repurpose-content.md
+│       │   ├── repurpose-content.md
+│       │   └── write-quality-check.md
 │       ├── xiaohongshu/     # 小红书 Skills
 │       │   └── write-xhs-post.md
 │       ├── wechat/           # 公众号 Skills
@@ -107,7 +108,7 @@ AI-OS/
 │     工作流：想法→发布 / 一鱼多吃 / 内容复盘                 │
 ├─────────────────────────────────────────────────────────┤
 │                    03 工具层                              │
-│     Skills：去AI腔 / 标题生成 / 小红书写作 / 公众号写作     │
+│     Skills：去AI腔 / 质检 / 标题生成 / 小红书写作 / 公众号写作     │
 ├─────────────────────────────────────────────────────────┤
 │                    02 知识层                              │
 │     知识库：内容归档 / 素材库 / 读者画像 / 学习笔记         │
@@ -124,6 +125,7 @@ AI-OS/
 | `de-ai-tone` | 去 AI 腔调，让文字更像人写的 | `03-tools/skills/global/` |
 | `generate-title` | 生成多个标题选项 | `03-tools/skills/global/` |
 | `repurpose-content` | 一篇内容改编为多平台版本 | `03-tools/skills/global/` |
+| `write-quality-check` | 四层写作质量自检体系 | `03-tools/skills/global/` |
 | `write-xhs-post` | 按风格写小红书文案 | `03-tools/skills/xiaohongshu/` |
 | `write-wechat-article` | 按风格写公众号长文 | `03-tools/skills/wechat/` |
 | `write-video-script` | 短视频文案生成（文案/分镜/封面/BGM） | `03-tools/skills/video/` |

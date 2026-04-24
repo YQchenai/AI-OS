@@ -55,9 +55,39 @@ ai-os/
    - 需要了解我当前在做什么 → 读 `memory/current_projects.md`
    - 避免重复犯错 → 读 `memory/ai_preferences.md`（踩坑记录）
 2. **调用知识**：需要背景信息时，去 `02-knowledge/` 查找
-3. **使用工具**：有现成 Skill 时优先使用，不要重复造轮子
+3. **使用 Skills**：有现成 Skill 时优先使用，不要重复造轮子。Skills 列表见下方
 4. **保持风格**：所有输出都要符合上面定义的风格偏好
 5. **记录笔记**：学到新东西或有灵感时，记到 `02-knowledge/notes/`
+
+## Skills 清单
+
+> Skills 是预定义的"肌肉记忆"，告诉 AI 在特定场景下该怎么做。共 7 个 Skill。
+
+| # | Skill 名称 | 触发场景 | 文件路径 |
+|---|-----------|---------|---------|
+| 1 | 公众号长文写作 | 需要写微信公众号长文 | `03-tools/skills/wechat/write-wechat-article.md` |
+| 2 | 小红书笔记写作 | 需要写小红书图文笔记 | `03-tools/skills/xiaohongshu/write-xhs-post.md` |
+| 3 | 短视频文案写作 | 需要写短视频脚本/文案 | `03-tools/skills/video/write-video-script.md` |
+| 4 | 去 AI 腔调 | 写作完成后去除 AI 味 | `03-tools/skills/global/de-ai-tone.md` |
+| 5 | 写作质量自检 | 长文写完后执行四层质检 | `03-tools/skills/global/write-quality-check.md` |
+| 6 | 标题生成 | 需要生成吸引人的标题 | `03-tools/skills/global/generate-title.md` |
+| 7 | 内容改编 | 一稿多平台分发改编 | `03-tools/skills/global/repurpose-content.md` |
+
+### Skill 调用关系
+
+```
+公众号长文写作 → 去 AI 腔调 → 写作质量自检 → 标题生成
+小红书笔记写作 → 去 AI 腔调 → 标题生成
+短视频文案写作 → 去 AI 腔调
+内容改编 → 标题生成
+```
+
+### Skill 使用规则
+
+- 写作类 Skill（公众号/小红书/短视频）完成后，自动调用「去 AI 腔调」
+- 公众号长文在去 AI 腔之后，自动调用「写作质量自检」
+- 标题生成在正文定稿后调用
+- 内容改编在已有成品内容后调用
 
 ---
 
