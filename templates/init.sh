@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 #  AI-OS 个人 AI 操作系统 — 一键初始化脚本
-#  版本: v1.0.1
+#  版本: v1.0.2
 #  适用: SOLO / Claude Code / 任何支持 Bash 的 AI 工具
 # ============================================================
 
@@ -24,7 +24,7 @@ print_banner() {
     echo -e "${CYAN}║        ${BOLD}AI-OS 个人 AI 操作系统${NC}                    ${CYAN}║${NC}"
     echo -e "${CYAN}║        ${BOLD}一键初始化向导${NC}                            ${CYAN}║${NC}"
     echo -e "${CYAN}║                                                  ║${NC}"
-    echo -e "${CYAN}║        版本 v1.0.1                                ${CYAN}║${NC}"
+    echo -e "${CYAN}║        版本 v1.0.2                                ${CYAN}║${NC}"
     echo -e "${CYAN}║                                                  ║${NC}"
     echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
     echo ""
@@ -102,23 +102,19 @@ main() {
     print_banner
 
     # ===== Step 0: 确认安装路径 =====
-    print_step "Step 0: 确认安装路径"
-    print_info "AI-OS 将安装到你的工作目录下"
-    INSTALL_DIR=$(ask "安装目录名称" "ai-os")
-    FULL_PATH="$(pwd)/${INSTALL_DIR}"
+    FULL_PATH="$(pwd)"
 
-    if [ -d "$FULL_PATH" ]; then
-        print_warn "目录 ${INSTALL_DIR} 已存在"
-        OVERWRITE=$(ask_choice "是否覆盖？" "是，覆盖现有文件" "否，安装到新目录")
-        if [ "$OVERWRITE" = "否，安装到新目录" ]; then
-            INSTALL_DIR="${INSTALL_DIR}-$(date +%Y%m%d-%H%M%S)"
-            FULL_PATH="$(pwd)/${INSTALL_DIR}"
-            print_info "将安装到: ${INSTALL_DIR}"
+    if [ -f "${FULL_PATH}/CLAUDE.md" ]; then
+        print_warn "当前目录已存在 AI-OS 配置（检测到 CLAUDE.md）"
+        OVERWRITE=$(ask_choice "是否覆盖？" "是，覆盖现有文件" "否，退出安装")
+        if [ "$OVERWRITE" = "否，退出安装" ]; then
+            echo -e "${RED}安装已取消。${NC}"
+            exit 0
         fi
     fi
 
     echo ""
-    print_info "安装路径: ${FULL_PATH}"
+    print_info "安装路径: ${FULL_PATH}（当前目录）"
     echo ""
 
     # ===== Step 1: 基础信息收集 =====
@@ -187,7 +183,7 @@ main() {
     cat > "${FULL_PATH}/01-identity/CLAUDE.md" << CLAUDE_EOF
 # AI-OS — 个人 AI 操作系统配置
 
-> **版本**: v1.0.1
+> **版本**: v1.0.2
 > **初始化日期**: $(date +%Y-%m-%d)
 > **适用工具**: SOLO / Claude Code / ChatGPT / 任何支持 Markdown 上下文的 AI 工具
 
@@ -1315,7 +1311,7 @@ LEARN_EOF
     cat > "${FULL_PATH}/docs/setup-guide.md" << GUIDE_EOF
 # AI-OS 使用指南
 
-> **版本**: v1.0.1 | **初始化日期**: $(date +%Y-%m-%d)
+> **版本**: v1.0.2 | **初始化日期**: $(date +%Y-%m-%d)
 
 ---
 
@@ -1431,7 +1427,7 @@ GUIDE_EOF
     cat > "${FULL_PATH}/README.md" << MAINREADME_EOF
 # AI-OS 个人 AI 操作系统
 
-> **版本**: v1.0.1 | **初始化日期**: $(date +%Y-%m-%d)
+> **版本**: v1.0.2 | **初始化日期**: $(date +%Y-%m-%d)
 > **所有者**: ${NICKNAME} | **身份**: ${ROLE} | **领域**: ${FIELD}
 
 ## 这是什么？
@@ -1486,6 +1482,13 @@ MAINREADME_EOF
     echo -e "${GREEN}║                                                  ║${NC}"
     echo -e "${GREEN}╚══════════════════════════════════════════════════╝${NC}"
     echo ""
+
+    # ===== 清理安装脚本 =====
+    SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
+    if [ "$SCRIPT_PATH" != "${FULL_PATH}/init.sh" ]; then
+        rm -f "$SCRIPT_PATH"
+        print_info "安装脚本已自动删除"
+    fi
 }
 
 main "$@"

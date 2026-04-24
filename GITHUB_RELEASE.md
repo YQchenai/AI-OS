@@ -24,7 +24,7 @@ git init
 git add .
 
 # 提交
-git commit -m "🎉 初始提交：个人 AI 操作系统 v1.0.1"
+git commit -m "🎉 初始提交：个人 AI 操作系统 v1.0.2"
 ```
 
 ## 3. 推送到 GitHub
@@ -60,8 +60,8 @@ git push -u origin main
 
 1. 点击 `Releases` → `Create a new release`
 2. 填写：
-   - **Tag**: `v1.0.1`
-   - **Title**: `v1.0.1 - 首次发布`
+   - **Tag**: `v1.0.2`
+   - **Title**: `v1.0.2 - 首次发布`
    - **Description**:
      ```
      ## 新功能
